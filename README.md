@@ -4,6 +4,13 @@ This project is realized by SpringBoot and aim to improve the e-commerce site pe
 
 ## Technology used
 
+>SpringBoot
+
+>Mybatis
+   -Persistence Layer
+
+>MySQL
+
 >Redis 
    - Create our distributed session management
    - Cache the static page like goods_detail.htm to speed up the page loading, must use with ajax
