@@ -22,7 +22,7 @@ public class HelloController {
         return Result.error(CodeMsg.SERVER_ERROR);
     }
 	
-	/*
+	/* Don't use ResponseBody here , because ResponseBody will not be passed to thymeleaf to resolve
 	 * 此处不能使用ResponseBody 因为ResponseBody返回的内容就是return的内容 配置的 thymeleaf 的视图解析器就不会起作用
 	 * */
 	@RequestMapping("/thymeleaf")
