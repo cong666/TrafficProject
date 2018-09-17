@@ -27,7 +27,7 @@ import com.cc.traffic.service.MiaoshaService;
 import com.cc.traffic.service.OrderService;
 import com.cc.traffic.vo.GoodsVo;
 
-
+//Flash Sale controller
 @Controller
 @RequestMapping("/miaosha")
 public class MiaoshaController  implements InitializingBean {
@@ -67,27 +67,27 @@ public class MiaoshaController  implements InitializingBean {
     		return Result.error(CodeMsg.SESSION_ERROR);
     	}
     	/*
-    	//直接通过redis来预减库存 redis是单线程的
+    	//Use redis to reduce stock's qty, because redis is single thread and can keep the thread safe
     	if(redisService.decr(GoodsKey.getMiaoshaGoodsStock, ""+goodsId) < 0) {
     		return Result.error(CodeMsg.MIAO_SHA_OVER);
     	}
     	*/
-        /*//直接通过redis来预减库存 redis是单线程的 和上面的代码无区别*/
+        /*Use redis to reduce stock's qty, because redis is single thread and can keep the thread safe, same as the code above*/
         long stock = redisService.decr(GoodsKey.getMiaoshaGoodsStock, ""+goodsId);//10
     	if(stock < 0) {
     		return Result.error(CodeMsg.MIAO_SHA_OVER);
     	}
-    	//判断是否已经秒杀到了
+    	//check if you have already got the flash sale ,one person one sale
     	MiaoshaOrder order = orderService.getMiaoshaOrderByUserIdGoodsId(user.getId(), goodsId);
     	if(order != null) {
     		return Result.error(CodeMsg.REPEATE_MIAOSHA);
     	}
-    	//入队
+    	//send using MQ
     	MiaoshaMessage mm = new MiaoshaMessage();
     	mm.setUser(user);
     	mm.setGoodsId(goodsId);
     	sender.sendMiaoshaMessage(mm);
-    	return Result.success(0);//排队中
+    	return Result.success(0);
     	/*//判断库存
 		GoodsVo goods = goodsService.getGoodsVoByGoodsId(goodsId);
 		int stock = goods.getStockCount();

@@ -50,7 +50,7 @@ public class GoodsController {
     @ResponseBody
     public String list(HttpServletRequest request, HttpServletResponse response,Model model,MiaoshaUser user) {
     	model.addAttribute("user", user);
-    	//取缓存
+    	//get the static page from redis
     	String html = redisService.get(GoodsKey.getGoodsList, "", String.class);
     	if(!StringUtils.isEmpty(html)) {
     		LOGGER.info("the page is found from redis cache!");
@@ -61,25 +61,26 @@ public class GoodsController {
        //return "goods_list";
     	WebContext ctx = new WebContext(request,response,
     			request.getServletContext(),request.getLocale(), model.asMap());
-    	//手动渲染
+    	//resolve the page manually
     	html = thymeleafViewResolver.getTemplateEngine().process("goods_list", ctx);
     	if(!StringUtils.isEmpty(html)) {
     		redisService.set(GoodsKey.getGoodsList, "", html);
     	}
     	return html;
     }
+    //get goods_detail from redis
     @RequestMapping(value="/to_detail2/{goodsId}",produces="text/html")
     @ResponseBody
     public String detail2(HttpServletRequest request, HttpServletResponse response, Model model,MiaoshaUser user,
     		@PathVariable("goodsId")long goodsId) {
     	model.addAttribute("user", user);
     	
-    	//取缓存
+    	//get page from cache
     	String html = redisService.get(GoodsKey.getGoodsDetail, ""+goodsId, String.class);
     	if(!StringUtils.isEmpty(html)) {
     		return html;
     	}
-    	//手动渲染
+    	//resolve the page manually and update it into the redis
     	GoodsVo goods = goodService.getGoodsVoByGoodsId(goodsId);
     	model.addAttribute("goods", goods);
     	
@@ -89,13 +90,13 @@ public class GoodsController {
     	
     	int miaoshaStatus = 0;
     	int remainSeconds = 0;
-    	if(now < startAt ) {//秒杀还没开始，倒计时
+    	if(now < startAt ) {//flash sale is not begin
     		miaoshaStatus = 0;
     		remainSeconds = (int)((startAt - now )/1000);
-    	}else  if(now > endAt){//秒杀已经结束
+    	}else  if(now > endAt){//flash sale has finished
     		miaoshaStatus = 2;
     		remainSeconds = -1;
-    	}else {//秒杀进行中
+    	}else {//flash sale DOING
     		miaoshaStatus = 1;
     		remainSeconds = 0;
     	}
@@ -129,13 +130,13 @@ public class GoodsController {
     	
     	int miaoshaStatus = 0;
     	int remainSeconds = 0;
-    	if(now < startAt ) {//秒杀还没开始，倒计时
+    	if(now < startAt ) {//flash sale not begin and will begin
     		miaoshaStatus = 0;
     		remainSeconds = (int)((startAt - now )/1000);
-    	}else  if(now > endAt){//秒杀已经结束
+    	}else  if(now > endAt){//flash sale has finished
     		miaoshaStatus = 2;
     		remainSeconds = -1;
-    	}else {//秒杀进行中
+    	}else {//flash sale is ongoing
     		miaoshaStatus = 1;
     		remainSeconds = 0;
     	}
