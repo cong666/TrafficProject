@@ -1,8 +1,8 @@
-com/cc/traffic/controller/SampleController.class
-com/cc/traffic/dao/UserDao.class
 com/cc/traffic/result/Result.class
 com/cc/traffic/controller/HelloController.class
 com/cc/traffic/service/UserService.class
 com/cc/traffic/domain/User.class
 com/cc/traffic/result/CodeMsg.class
 com/cc/traffic/app/Application.class
+com/cc/traffic/controller/SampleController.class
+com/cc/traffic/dao/UserDao.class

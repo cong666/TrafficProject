@@ -1,6 +1,8 @@
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/domain/MiaoshaGoods.java
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/controller/SampleController.java
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/config/WebConfig.java
+/Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/rabbitmq/MQReceiver.java
+/Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/rabbitmq/MQConfig.java
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/controller/GoodsController.java
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/redis/GoodsKey.java
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/domain/MiaoshaUser.java
@@ -14,6 +16,7 @@
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/domain/Goods.java
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/vo/GoodsVo.java
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/controller/UserController.java
+/Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/rabbitmq/MQSender.java
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/exception/GlobalExceptionHandler.java
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/validator/IsMobile.java
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/domain/MiaoshaOrder.java
@@ -22,6 +25,7 @@
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/service/MiaoShaUserService.java
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/config/UserArgumentResolver.java
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/controller/LoginController.java
+/Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/rabbitmq/MiaoshaMessage.java
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/util/UserUtil.java
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/domain/User.java
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/result/CodeMsg.java
@@ -46,4 +50,5 @@
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/redis/KeyPrefix.java
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/service/OrderService.java
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/controller/HelloController.java
+/Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/redis/MiaoshaKey.java
 /Users/ccong/Documents/J2EEProject/ImoocProject/DataTraficSolution/src/main/java/com/cc/traffic/util/MD5Util.java
