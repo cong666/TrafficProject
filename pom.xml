@@ -38,11 +38,12 @@
 			<artifactId>druid</artifactId>
 			<version>1.0.5</version>
 		</dependency>
+		<!--redis-jedis-->
 		<dependency>
 			<groupId>redis.clients</groupId>
 			<artifactId>jedis</artifactId>
 		</dependency>
-
+                <!--json-->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
